@@ -1,0 +1,24 @@
+
+
+     ```python
+     from flask import Flask, request
+     from twilio.twiml.messaging_response import MessagingResponse
+
+     app = Flask(_pn.thero-bot-v01_)
+
+     @app.route('/bot', methods=['POST'])
+     def bot():
+         incoming_msg = request.values.get('Body', '').lower()
+         resp = MessagingResponse()
+         msg = resp.message()
+
+         if 'hello' in incoming_msg:
+             msg.body("ආයුබෝවන්! මම පුඤ්ඤානන්ද හිමිගේ bot එකයි.")
+         else:
+             msg.body("මට තේරෙන්නෙ නෑ. 'hello' කියලා බලන්න.")
+
+         return str(resp)
+
+     if _name_ == '_main_':
+         app.run()
+     ``
